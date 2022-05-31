@@ -25,9 +25,9 @@ app.get('/', function (req, res) {
   res.send('This is Your Server')
 })
 
-mongoose.connect(process.env.MONGODB_URL, ()=>{
+
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.ncuib.mongodb.net/TriAngle?retryWrites=true&w=majority`, ()=>{
     console.log('database connected')
 });
-
 
 app.listen(8000)

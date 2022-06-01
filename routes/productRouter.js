@@ -1,11 +1,19 @@
 const express = require('express')
 const Product = require('../models/productModel.js')
+const itemData = require('../Data/itemData.js')
 
 const productRoutes = express.Router()
 
 productRoutes.get('/', (req,res)=>{
     Product.find({}, (err,docs)=>{
         res.send(docs)
+    })
+})
+
+productRoutes.post('/', (req,res)=>{
+    res.send(itemData)    
+    var productData = new Product(itemData);     
+    productData .save((err, doc) => {
     })
 })
 

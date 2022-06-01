@@ -21,9 +21,13 @@ app.use('/api/auth', Auth)
 app.get('/', function (req, res) {
   res.send('This is Your Server')
 })
-mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.ncuib.mongodb.net/TriAngle?retryWrites=true&w=majority`, ()=>{
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.mtlu4.mongodb.net/metro?retryWrites=true&w=majority`, ()=>{
     console.log('database connected')
 });
+
+// mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.ncuib.mongodb.net/TriAngle?retryWrites=true&w=majority`, ()=>{
+//     console.log('database connected')
+// });
 
 const port = process.env.PORT || 8000
 app.listen(port)

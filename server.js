@@ -1,8 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
- 
-
 const app = express()
 require('dotenv').config()
 app.use(cors())
@@ -12,7 +10,6 @@ const productRoutes = require('./routes/productRouter');
 const seedRoutes = require('./routes/seedRouter');
 const userRoutes = require('./routes/userRouter');
 const Auth = require('./routes/authRouter')
-
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
@@ -24,10 +21,9 @@ app.use('/api/auth', Auth)
 app.get('/', function (req, res) {
   res.send('This is Your Server')
 })
-
-
 mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.ncuib.mongodb.net/TriAngle?retryWrites=true&w=majority`, ()=>{
     console.log('database connected')
 });
 
-app.listen(8000)
+const port = process.env.PORT || 8000
+app.listen(port)
